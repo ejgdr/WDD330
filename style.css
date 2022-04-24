@@ -1,0 +1,12 @@
+body {
+    font-size: 20px;
+    font-family: Verdana, Tahoma, sans-serif;
+    background-color:azure;
+  }
+  
+  h1 {
+    background-color: rgb(107, 110, 148);
+    color: azure;
+    padding: 0.5em;
+    text-align: center;
+  }
