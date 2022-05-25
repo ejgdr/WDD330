@@ -45,6 +45,10 @@ body {
     text-align: center;
   }
 
+  p {
+    padding: 0.5em;
+  }
+
   @media (min-width: 43em) {
     body {
       font-size: var(--paragraph-medium-size);

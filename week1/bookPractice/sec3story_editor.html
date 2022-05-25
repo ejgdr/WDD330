@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WDD 330 EJGDR Port Week 2 Book</title>
-    <link rel="stylesheet" href="../../css/style.css" />
-    <style>
-        textarea {
-            width: 800px;
-            height: 250px;
-            background-color: lightyellow;
-        }
-    </style>
+    <title>Story Writer</title>
     <script>
         function loadStory() {
             var storyName = document.getElementById("name_input").value
@@ -30,11 +19,18 @@
             document.getElementById("story_display").innerHTML = storyHTML
         }
     </script>
+
+    <style>
+        textarea {
+            width: 800px;
+            height: 250px;
+            background-color: lightyellow;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Week 2 Book Practice</h1>
-    <h2>Story Editor</h2>
+    <h1>Story Editor</h1>
     Story Name:<input id="name_input">
     <section>
         <button onclick="loadStory()">Find and Edit It</button>

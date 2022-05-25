@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Chonburi&family=Roboto:wght@500&display=swap');
+
+:root {
+  --light-purple: rgb(107, 110, 148);
+  --light-blue: azure;
+  --almost-black: #3a3a3a;
+
+  --heading-font: "Chonburi", Helvetica, sans-serif;
+  --paragraph-font: "Roboto", Verdana, sans-serif;
+
+  --heading1-small-size: 1.1em;
+  --heading1-medium-size: 1.8em;
+  --heading1-full-size: 2.1em;
+
+  --heading2-small-size: 0.9em;
+  --heading2-medium-size: 1.6em;
+  --heading2-full-size: 1.9em;
+
+  --paragraph-small-size: 0.9em;
+  --paragraph-medium-size: 1.1em;
+  --paragraph-full-size: 1.3em;
+
+  --nav-small-size: 0.8em;
+  --nav-medium-size: 1.1em;
+  --nav-full-size: 1.5em;
+
+  --footer-small-size: 0.75em;
+  --footer-medium-size: 0.8em;
+  --footer-full-size: 1.0em;
+
+}
+
+body {
+    font-size: var(--paragraph-small-size);
+    font-family: var(--paragraph-font);
+    background-color:var(--light-blue);
+    width: 25em;
+    margin: auto;
+}
+  
+h1 {
+    font-family: var(--heading-font);
+    font-size: var(--heading1-small-size);
+    background-color: var(--light-purple);
+    color: var(--light-blue);
+    padding: 0.5em;
+    text-align: center;
+}
+  
+.tasks-list-container {
+    text-align:center;
+    font-family: var(--paragraph-font);
+    font-size: var(--paragraph-small-size);
+}
+
+.new-tasks {
+    text-align:center;
+    font-family: var(--paragraph-font);
+    font-size: var(--paragraph-small-size);
+}
+
+.number-tasks-remaining{
+    font-size: var(--footer-small-size);
+}
+
+@media (min-width: 43em) {
+    body {
+        font-size: var(--paragraph-medium-size);
+        width: 35em;
+    }
+
+    h1 {
+        font-size: var(--heading1-medium-size);
+    }
+
+    .tasks-list-container,
+    .new-tasks {
+        font-size: var(--paragraph-medium-size);
+    }
+    
+    .number-tasks-remaining{
+        font-size: var(--footer-medium-size);
+    }
+}
+
+@media (min-width: 62em) {
+    body {
+        width: 50em;  
+        font-size: var(--paragraph-full-size);
+    }
+
+    h1 {
+        font-size: var(--heading1-full-size);
+    }
+
+    .tasks-list-container,
+    .new-tasks {
+        font-size: var(--paragraph-full-size);
+    }
+    
+    .number-tasks-remaining{
+        font-size: var(--footer-full-size);
+    }
+}
