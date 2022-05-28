@@ -48,22 +48,26 @@ h1 {
 }
   
 .tasks-list-container {
+    max-width: 500px;
+    margin: auto;
     font-family: var(--paragraph-font);
     font-size: var(--paragraph-small-size);
 }
 
-#todos .todo {
-    display: flex;
-    padding: 1rem;
-    box-shadow: var(--almost-black);
-    margin-bottom: 0.5rem;
-}
-
 .todo {
-    flex: 1 1 0%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--almost-black);
+    padding: 10px;
+    box-sizing:border-box;
+    margin: 10px 0px;
+    border-radius: 0.5rem;
+  
 }
 
 .new-tasks {
+    padding-top: 10px;
     text-align:center;
     font-family: var(--paragraph-font);
     font-size: var(--paragraph-small-size);
