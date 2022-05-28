@@ -7,35 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDoApp</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="todos.js" type="module"></script>
 </head>
 
 <body>
-    <header>
+    <div class="container">
         <h1>Todos</h1>
-    </header>
-    <main>
-        <section class="tasks-list-container">
-            <form id="tasks-list">
-                <input type="checkbox" id="tasks" name="tasks">
-                <label for="tasks">Here would be the substitution</label>
-                <button type="submit" name="delete-task" id="delete-task">x</button>
-            </form>
-            <div class="status">
-                <span class="number-tasks-remaining">To say how many are left</span>
-                <button class="show-all-tasks">All</button>
-                <button class="show-tasks-remaining">Active</button>
-                <button class="show-tasks-completed">Completed</button>
+
+        <div class="tasks-list-container">
+            <div id="todos">
+
             </div>
-            <br>
-        </section>
-        <section class="new-tasks">
-            <form id="new-task">
-                <input type="text" id="new-task-input" placeholder="Write here your planned task">
-                <input type="submit" name="new-task-submit" id="new-task-submit" value="+">
-            </form>
-        </section>
-    </main>
-    <script src="ToDos.js" type="module"></script>
+
+            <div class="status">
+
+            </div>
+        </div>
+
+        <div class="new-tasks">
+            <input id="todoInput" type="text">
+            <button id="addBtn">Add</button>
+        </div>
+
+    </div>
 </body>
 
 </html>

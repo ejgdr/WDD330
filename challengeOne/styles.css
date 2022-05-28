@@ -48,9 +48,19 @@ h1 {
 }
   
 .tasks-list-container {
-    text-align:center;
     font-family: var(--paragraph-font);
     font-size: var(--paragraph-small-size);
+}
+
+#todos .todo {
+    display: flex;
+    padding: 1rem;
+    box-shadow: var(--almost-black);
+    margin-bottom: 0.5rem;
+}
+
+.todo {
+    flex: 1 1 0%;
 }
 
 .new-tasks {
