@@ -73,6 +73,15 @@ h1 {
     font-size: var(--paragraph-small-size);
 }
 
+.status {
+    display: flex;
+    padding: 0.5rem;
+}
+
+/* input[type=checkbox]:checked~.todo {
+    display: none;
+} */
+
 .number-tasks-remaining{
     font-size: var(--footer-small-size);
 }

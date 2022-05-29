@@ -1,7 +1,11 @@
 import utilities from '/utilities.js';
 import ls from '/ls.js';
 
+//listeners
 document.querySelector('#addBtn').onclick = addNewTodo;
+document.querySelector('#allFilter').onclick = applyFilter;
+document.querySelector('#activeFilter').onclick = applyFilter;
+document.querySelector('#completedFilter').onclick = applyFilter;
 
 const input = document.querySelector('#todoInput');
 
@@ -26,7 +30,9 @@ function createTodoItem(todo) {
     const todoDiv = document.createElement('div');
     todoDiv.classList.add('todo');
 
-    const completeBtn = document.createElement('button');
+    const completeBtn = document.createElement('input');
+    completeBtn.type = 'checkbox';
+    completeBtn.onClick = toggleCheckbox;
     completeBtn.setAttribute('data-id', todo.id);
     completeBtn.classList.add('complete-btn');
 
@@ -52,11 +58,8 @@ function addToList(todoDiv) {
 }
 
 function loadTodos() {
-    document.querySelector('#todos').innerHTML = '';
     const todoList = ls.getTodoList();
-
-    console.log(todoList)
-
+    document.querySelector('#todos').innerHTML = '';
     todoList.forEach(todo => {
         const el = createTodoItem(todo)
         addToList(el)
@@ -64,10 +67,50 @@ function loadTodos() {
 }
 
 function deleteTodo(e) {
-    const todoId = e.currentTarget.getAttribute('data-id');
-    ls.deleteTodo(todoId);
+    const todoId = e.currentTarget;
+    ls.deleteTodo(todoId.getAttribute('data-id'));
+    document.querySelector('#todos').innerHTML = '';
     loadTodos();
 }
+
+function toggleCheckbox() {
+    var x = document.getElementById("complete-btn");
+    if (!x.checked) {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+}
+
+function applyFilter(e) {
+    document.querySelector('#todos').innerHTML = '';
+
+    let filteredTodos = [];
+    const allTodos = ls.getTodoList();
+
+    if (e.currentTarget.id == 'activeFilter') {
+        filteredTodos = utilities.activeFilter(allTodos);
+    } else if (e.currentTarget.id == 'allFilter') {
+        filteredTodos = allTodos;
+    } else if (e.currentTarget.id == 'completedFilter'){
+        filteredTodos = utilities.completedFilter(allTodos);
+    }
+
+    let result = document.getElementById('count');
+    if (filteredTodos.length != 0) {
+        result.setAttribute('count', filteredTodos.length);
+    } else {
+        result.setAttribute('count', 0); 
+    }
+    console.log(result);
+
+    filteredTodos.forEach( todo => {
+        const el = createTodoItem(todo);
+        addToList(el);
+    })
+}
+
+
 
 // window.addEventListener('load', () => {
 //     toDos =JSON.parse(localStorage.getItem('toDos') || []);
