@@ -29,11 +29,11 @@ function deleteTodo(id) {
 }
 
 function updateTodo (todo) {
-    const todoList = ls.getTodoList();
+    const todoList = getTodoList();
     if(todo.checked) {
-        todoList[todo.id].completed = true;
+        todoList.completed = true;
     } else {
-        todoList[todo.id].completed = false;
+        todoList.completed = false;
     }
     localStorage.setItem(TODO_LIST, JSON.stringify(todoList));
 }

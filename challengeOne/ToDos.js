@@ -74,12 +74,12 @@ function deleteTodo(e) {
     loadTodos();
 }
 
-function toggleCheckbox(e) {
-    let checkedBox = document.getElementById('complete-btn');
-    if (e.checked){
+function toggleCheckbox() {
+    let checkedBox = document.querySelectorAll('input[type="checkbox"]');
+    if (checkedBox.checked){
         checkedBox.setAttribute('checked', true);
-
     }
+    
 }
 
 function applyFilter(e) {
@@ -97,7 +97,7 @@ function applyFilter(e) {
     } else if (e.currentTarget.id == 'allFilter') {
         filteredTodos = allTodos;
     } else if (e.currentTarget.id == 'completedFilter'){
-        filteredTodos = toggleCheckbox(allTodos);
+        filteredTodos = toggleCheckbox(ls.updateTodo(allTodos));
     }
 
     if (filteredTodos.length != 0) {
