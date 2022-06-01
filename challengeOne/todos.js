@@ -1,5 +1,5 @@
-import utilities from '/utilities.js';
-import ls from '/ls.js';
+import utilities from 'utilities.js';
+import ls from 'ls.js';
 
 loadTodos();
 
