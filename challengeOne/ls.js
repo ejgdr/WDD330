@@ -28,8 +28,19 @@ function deleteTodo(id) {
     localStorage.setItem(TODO_LIST, JSON.stringify(updatedList));
 }
 
+function updateTodo (todo) {
+    const todoList = ls.getTodoList();
+    if(todo.checked) {
+        todoList[todo.id].completed = true;
+    } else {
+        todoList[todo.id].completed = false;
+    }
+    localStorage.setItem(TODO_LIST, JSON.stringify(todoList));
+}
+
 export default {
     saveTodo,
     deleteTodo,
-    getTodoList
+    getTodoList,
+    updateTodo
 }

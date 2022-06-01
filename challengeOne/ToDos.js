@@ -32,9 +32,9 @@ function createTodoItem(todo) {
 
     const completeBtn = document.createElement('input');
     completeBtn.type = 'checkbox';
-    completeBtn.onClick = toggleCheckbox;
     completeBtn.setAttribute('data-id', todo.id);
     completeBtn.classList.add('complete-btn');
+    completeBtn.addEventListener('click', toggleCheckbox);
 
     const todoContent = document.createElement('div');
     todoContent.innerText = todo.content;
@@ -74,10 +74,11 @@ function deleteTodo(e) {
     loadTodos();
 }
 
-function toggleCheckbox(todo) {
-    let x = document.querySelector('#todos');
-    if (x.checked == true) {
-      todo.completed = true;
+function toggleCheckbox(e) {
+    let checkedBox = document.getElementById('complete-btn');
+    if (e.checked){
+        checkedBox.setAttribute('checked', true);
+
     }
 }
 
@@ -96,7 +97,7 @@ function applyFilter(e) {
     } else if (e.currentTarget.id == 'allFilter') {
         filteredTodos = allTodos;
     } else if (e.currentTarget.id == 'completedFilter'){
-        filteredTodos = utilities.completedFilter(allTodos);
+        filteredTodos = toggleCheckbox(allTodos);
     }
 
     if (filteredTodos.length != 0) {

@@ -97,6 +97,10 @@ h2 {
     height: 25px;
 }
 
+.complete-btn:checked {
+    text-decoration: line-through;
+}
+
 @media (min-width: 43em) {
     body {
         font-size: var(--paragraph-medium-size);
