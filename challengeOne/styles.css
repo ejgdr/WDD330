@@ -97,8 +97,12 @@ h2 {
     height: 25px;
 }
 
-.complete-btn:checked {
+.contentChecked {
     text-decoration: line-through;
+}
+
+.contentUnchecked {
+    text-decoration: none;
 }
 
 @media (min-width: 43em) {

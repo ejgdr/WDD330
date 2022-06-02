@@ -28,19 +28,30 @@ function deleteTodo(id) {
     localStorage.setItem(TODO_LIST, JSON.stringify(updatedList));
 }
 
-function updateTodo (todo) {
-    const todoList = getTodoList();
-    if(todo.checked) {
-        todoList.completed = true;
-    } else {
-        todoList.completed = false;
-    }
-    localStorage.setItem(TODO_LIST, JSON.stringify(todoList));
+function updateTodo (id) {
+    let todoList = getTodoList();
+
+    let updatedTodo = todoList.filter(todo => todo.id == id);
+    
+    updatedTodo[0].completed = true;
+    
+    localStorage.setItem(TODO_LIST, JSON.stringify(todoList));    
+}
+
+function updateBack (id) {
+    let todoList = getTodoList();
+
+    let updatedTodo = todoList.filter(todo => todo.id == id);
+    
+    updatedTodo[0].completed = false;
+    
+    localStorage.setItem(TODO_LIST, JSON.stringify(todoList));    
 }
 
 export default {
     saveTodo,
     deleteTodo,
     getTodoList,
-    updateTodo
+    updateTodo,
+    updateBack
 }
