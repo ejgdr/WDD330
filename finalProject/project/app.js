@@ -1,29 +1,44 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-// import fetch  from 'node-fetch';
+const Datastore = require('nedb');
+const fetch = require('node-fetch');
 
 const port = process.env.PORT || 8080;
 const api_key = process.env.API_KEY;
 const app = express();
 dotenv.config();
 
-app
-  .use(bodyParser.json())
-  .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-  })
-  .use(express.static('public'));
+app.listen(8080, () => console.log(`Listening on port ${port}`));
 
-  app.listen(8080, () => console.log(`Listening on port ${port}`))
+const database = new Datastore('database.db');
+database.loadDatabase();
 
+app.use(express.static('public'));
+app.use(express.json({ limit: '1mb' }));
 
-  // const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${api_key}`);
+app.get('/api', (req, res) => {
+  database.find({}, (err, data) => {
+    if (err) {
+      res.end();
+      return;
+    }
+    res.json(data);
+  });
+});
 
-  // console.log(response.ok);
-  // console.log(response.status);
-  // console.log(response.statusText);
-  // console.log(response.headers.raw());
-  // console.log(response.headers.get('content-type'));
+app.post('/api', (req, res) => {
+  const data = req.body;
+  const timestamp = Date.now();
+  data.timestamp = timestamp;
+  database.insert(data);
+  res.json(data);
+});
+
+app.get('/earth', async(req, res) => {
+  const api_url = `https://api.nasa.gov/planetary/earth/imagery?lon=100.75&lat=1.5&date=2014-02-01&api_key=${api_key}`
+  const response = await fetch(api_url);
+  const json = await response.json();
+  res.json(json);
+})
   
