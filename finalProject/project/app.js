@@ -1,9 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Amadeus = require('amadeus');
+const dotenv = require('dotenv');
+// import fetch  from 'node-fetch';
 
 const port = process.env.PORT || 8080;
+const api_key = process.env.API_KEY;
 const app = express();
+dotenv.config();
 
 app
   .use(bodyParser.json())
@@ -11,16 +14,16 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
-  .use('/', require('./routes'));
+  .use(express.static('public'));
 
-  const amadeus = new Amadeus();
-  amadeus.shopping.flightOffersSearch.get({
-    originLocationCode: 'SYD',
-    destinationLocationCode: 'BKK',
-    departureDate: '2022-06-01',
-    adults: '2'
-}).then(function(response){
-  console.log(response.data);
-}).catch(function(responseError){
-  console.log(responseError.code);
-});
+  app.listen(8080, () => console.log(`Listening on port ${port}`))
+
+
+  // const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${api_key}`);
+
+  // console.log(response.ok);
+  // console.log(response.status);
+  // console.log(response.statusText);
+  // console.log(response.headers.raw());
+  // console.log(response.headers.get('content-type'));
+  
