@@ -4,10 +4,11 @@ const dotenv = require('dotenv');
 const Datastore = require('nedb');
 const fetch = require('node-fetch');
 
+dotenv.config();
 const port = process.env.PORT || 8080;
 const api_key = process.env.API_KEY;
 const app = express();
-dotenv.config();
+
 
 app.listen(8080, () => console.log(`Listening on port ${port}`));
 
@@ -35,8 +36,11 @@ app.post('/api', (req, res) => {
   res.json(data);
 });
 
-app.get('/earth', async(req, res) => {
-  const api_url = `https://api.nasa.gov/planetary/earth/imagery?lon=100.75&lat=1.5&date=2014-02-01&api_key=${api_key}`
+app.get('/earth/:latlon', async(req, res) => {
+  const latlon = req.params.latlon.split(',');
+  const latitude = latlon[0];
+  const longitude = latlon[1];
+  const api_url = `https://api.nasa.gov/planetary/earth/assets?lon=${longitude}&lat=${latitude}&date=2018-01-01&&dim=0.10&api_key=${api_key}`
   const response = await fetch(api_url);
   const json = await response.json();
   res.json(json);
