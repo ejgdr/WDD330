@@ -40,9 +40,25 @@ app.get('/earth/:latlon', async(req, res) => {
   const latlon = req.params.latlon.split(',');
   const latitude = latlon[0];
   const longitude = latlon[1];
-  const api_url = `https://api.nasa.gov/planetary/earth/assets?lon=${longitude}&lat=${latitude}&date=2018-01-01&&dim=0.10&api_key=${api_key}`
-  const response = await fetch(api_url);
-  const json = await response.json();
-  res.json(json);
+  
+  const picLocation_url = `https://api.nasa.gov/planetary/earth/assets?lon=${longitude}&lat=${latitude}&date=2018-01-01&&dim=0.10&api_key=${api_key}`;
+  const pl_response = await fetch(picLocation_url);
+  const pl_data = await pl_response.json();
+
+  const picDay_url = `https://api.nasa.gov/planetary/apod?api_key=${api_key}`;
+  const pd_response = await fetch(picDay_url);
+  const pd_data = await pd_response.json();
+
+  const notifications_url = `https://api.nasa.gov/DONKI/notifications?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&type=all&api_key=${api_key}`;
+  const notif_response = await fetch(notifications_url);
+  const notif_data = await notif_response.json();
+  
+  const data = {
+    pic_location: pl_data,
+    pic_day: pd_data,
+    notifications: notif_data
+  };
+
+  res.json(data);
 })
   
