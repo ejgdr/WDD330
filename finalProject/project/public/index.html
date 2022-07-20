@@ -7,31 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Space App</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 </head>
 
-<body>
+<header>
     <script src="index.js"></script>
-    <section>
-        <a href="../index.html">Back</a>
+    <section id="top">
+        <a class="backIcon" href="../index.html" alt="Go Back">Back</a>
     </section>
     <h1>Space App</h1>
-    <a href="/saves/index.html">Saved searchs</a>
-    <p>
+</header>
+
+<body>
+    <a class="backIcon" href="/saves/index.html">Saved searchs</a>
+    <p class="par">
         You are located at:<br />
         Latitude: <span id="latitude"></span>&deg;<br />
         Longitude: <span id="longitude"></span>&deg;
     </p>
-    <img src="" id="location_image" width="200" alt="Landsat imagery for your location" />
+
+    <img src="" id="location_image" width="600" alt="Landsat imagery for your location" />
 
     <h2>Image of the day</h2>
-    <p id="day_explanation"></p>
-    <img src="" id="day_image" width="600" alt="Astronomy picture of the day" />
+    <h3 id="day_title"></h3>
+    <p id="day_explanation" class="par"></p>
+    <a id="day_hdImage" href="" target="_blank">
+        <img src="" id="day_image" width="600" alt="Astronomy picture of the day" />
+    </a>
+    <p>&copy;</p><span id="day_copyright" class="par"></span>
 
     <h2>Space Weather Database Of Notifications, Knowledge, Information (DONKI)</h2>
-    <ul id="notifications"></ul>
+    <ul id="notifications" class="par"></ul>
     <section>
-        <a href="../index.html">Back</a>
+        <a class="backIcon" href="../index.html" alt="Go Back">Back</a>
+        <a class="backIcon" href="#top" alt="Go to the Top">Top</a>
     </section>
+
 </body>
+<footer>
+    <p> &copy; Ema Guillen - BYU-I Student - WDD 330<br>
+        All the info displayed on this web application belongs to api.nasa.gov<br>
+        Last Updated: July 20, 2022;
+    </p>
+</footer>
 
 </html>

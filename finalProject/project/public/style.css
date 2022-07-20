@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Hammersmith+One&family=Rubik+Moonrocks&display=swap');
+body {
+    background: rgb(9,103,121);
+    background: linear-gradient(190deg, rgba(9,103,121,0.938813025210084) 35%, rgba(0,212,255,0.7707457983193278) 100%);
+    font-family: Hammersmith One;
+    margin: 2rem;
+    font-size: 1.5rem;
+}
+
+.backIcon {
+    background: -webkit-linear-gradient(#eee, rgb(119, 126, 173));
+    font-size: 22px;
+    padding: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.par {
+    background:#333;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h1 {
+    font-family: Rubik Moonrocks;
+    font-size: 10rem;
+    background: -webkit-linear-gradient(#eee, rgb(119, 126, 173));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+h2 {
+    font-family: Fredoka One;
+    font-size: 3rem;
+    background: -webkit-linear-gradient(#eee, rgb(119, 126, 173));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+h3 {
+    font-family: Fredoka One;
+    font-size: 2rem;
+    background: -webkit-linear-gradient(#eee, rgb(119, 126, 173));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer {
+    color:#eee;
+    padding: 8px;
+    text-align: center;
+}
