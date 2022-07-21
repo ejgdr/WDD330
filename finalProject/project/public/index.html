@@ -21,29 +21,38 @@
 </header>
 
 <body>
-    <a class="backIcon" href="/saves/index.html">Saved searchs</a>
-    <p class="par">
-        You are located at:<br />
-        Latitude: <span id="latitude"></span>&deg;<br />
-        Longitude: <span id="longitude"></span>&deg;
-    </p>
+    <div id="container">
+        <section id="container-top-buttons">
+            <a id="save" class="backIcon" href="/">Save</a>
+            <a id="searches" class="backIcon" href="/saves/index.html">Saved searchs</a>
+        </section>
+        <div id="container-location">
+            <p id="location" class="par">
+                You are located at:<br />
+                Latitude: <span id="latitude"></span>&deg;<br />
+                Longitude: <span id="longitude"></span>&deg;<br /><br />
+                This is the image for your location:
+            </p>
 
-    <img src="" id="location_image" width="600" alt="Landsat imagery for your location" />
-
-    <h2>Image of the day</h2>
-    <h3 id="day_title"></h3>
-    <p id="day_explanation" class="par"></p>
-    <a id="day_hdImage" href="" target="_blank">
-        <img src="" id="day_image" width="600" alt="Astronomy picture of the day" />
-    </a>
-    <p>&copy;</p><span id="day_copyright" class="par"></span>
-
-    <h2>Space Weather Database Of Notifications, Knowledge, Information (DONKI)</h2>
-    <ul id="notifications" class="par"></ul>
-    <section>
-        <a class="backIcon" href="../index.html" alt="Go Back">Back</a>
-        <a class="backIcon" href="#top" alt="Go to the Top">Top</a>
-    </section>
+            <img src="" id="location_image" width="300" />
+        </div>
+        <div id="container-img-day">
+            <h2 id="big_title">Image of the day</h2>
+            <h3 id="day_title"></h3>
+            <p id="day_explanation" class="par"></p>
+            <a id="day_hdImage" href="" target="_blank">
+                <img src="" id="day_image" width="600" alt="Astronomy picture of the day" />
+            </a>
+        </div>
+        <div id="container-notifications">
+            <h2>Space Weather Database Of Notifications, Knowledge, Information (DONKI)</h2>
+            <ul id="notifications" class="par"></ul>
+        </div>
+        <section id="container-bottom-buttons">
+            <a id="backBtn" class="backIcon" href="../index.html" alt="Go Back">Back</a>
+            <a id="topBtn" class="backIcon" href="#top" alt="Go to the Top">Top</a>
+        </section>
+    </div>
 
 </body>
 <footer>
