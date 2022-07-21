@@ -124,8 +124,7 @@ section {
     padding: 1rem;
 }
 
-#day_image,
-#day_copyright {
+#day_image {
     grid-column: 2/3;
     justify-self: end;
 }

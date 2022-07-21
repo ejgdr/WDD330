@@ -22,7 +22,6 @@ if ('geolocation' in navigator) {
             let day_image = document.getElementById('day_image').src = day_pic.url;
             document.getElementById('day_hdImage').href = day_pic.hdurl;
             document.getElementById('day_title').textContent = day_pic.title;
-            document.getElementById('day_copyright').textContent = day_pic.copyright;
 
             const data = { latitude, longitude, loc_image, day_image };
             const options = {
